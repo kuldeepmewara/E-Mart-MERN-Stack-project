@@ -48,16 +48,25 @@ const HeaderComponent = () => {
       if (searchCategoryToggle === "All") {
         navigate(`/product-list/search/${searchQuery}`);
       } else {
+        // navigate(
+        //   `/product-list/category/${searchCategoryToggle.replaceAll(
+        //     "/",
+        //     ","
+        //   )}/search/${searchQuery}`
+        // );
         navigate(
-          `/product-list/category/${searchCategoryToggle.replaceAll(
-            "/",
+          `/product-list/category/${searchCategoryToggle.replace(
+            /\//g,
             ","
           )}/search/${searchQuery}`
         );
       }
     } else if (searchCategoryToggle !== "All") {
+      // navigate(
+      //   `/product-list/category/${searchCategoryToggle.replaceAll("/", ",")}`
+      // );
       navigate(
-        `/product-list/category/${searchCategoryToggle.replaceAll("/", ",")}`
+        `/product-list/category/${searchCategoryToggle.replace(/\//g, ",")}`
       );
     } else {
       navigate("/product-list");
